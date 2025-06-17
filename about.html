@@ -2,11 +2,12 @@
 <html>
   <head>
     <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
+        background-color: #fffdd0;
         font-family: Arial, sans-serif;
         text-align: center;
-        background-color: #fffdd0;
         padding: 20px;
         margin: 0;
       }
@@ -31,12 +32,14 @@
       h1 {
         color: blue;
         margin-top: 20px;
+        font-size: 36px;
       }
 
       p {
         color: maroon;
         font-size: 18px;
-        margin-top: 10px;
+        margin: 20px auto;
+        max-width: 600px;
       }
 
       button {
@@ -53,6 +56,27 @@
       button:hover {
         background-color: darkred;
       }
+
+      /* Responsive tweaks */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        nav a {
+          display: block;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        button {
+          width: 100%;
+          font-size: 16px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -62,17 +86,21 @@
       <a href="courses.html">Courses</a>
       <a href="contact.html">Contact</a>
     </nav>
-    
-    <h1>About LINK Training College</h1>
-    <p>At LINK Training College, we are committed to equipping emerging leaders with the entrepreneurial skills and marketplace competencies needed to create transformative, sustainable solutions in their communities and beyond.
 
-Grounded in a foundation of experiential learning and Godly servant leadership, we foster a dynamic environment where students grow in excellence, innovation, and purpose. Our programs are designed not only to educate but to inspire — empowering individuals to become influential leaders who drive meaningful change and embody integrity in every sphere of life.</p>
+    <h1>About LINK Training College</h1>
+    <p>
+      We are dedicated to excellence, professionalism, and serving the community
+      through transformative education. Our mission is to empower students with
+      knowledge, skill, and character to impact society.
+      Grounded in experiential learning and Godly servant leadership, we foster 
+      a dynamic environment where students grow in excellence, innovation, and 
+      purpose. Our programs are designed to inspire — empowering individuals to 
+      become influential leaders who drive meaningful change and embody 
+      integrity in every sphere of life.
+    </p>
 
     <a href="index.html">
-      <button>
-        ← Back to Home
-      </button>
+      <button>← Back to Home</button>
     </a>
-
   </body>
 </html>
