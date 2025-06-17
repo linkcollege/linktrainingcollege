@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
         background-color: #fffdd0;
@@ -31,6 +32,7 @@
       h1 {
         color: blue;
         margin-top: 20px;
+        font-size: 36px;
       }
 
       p {
@@ -41,19 +43,22 @@
 
       .contact-info {
         margin-top: 20px;
+        margin-bottom: 30px;
       }
 
       form {
-        margin-top: 30px;
+        margin: 0 auto;
+        max-width: 400px;
       }
 
       input, textarea {
-        width: 300px;
+        width: 100%;
         padding: 10px;
         margin: 10px 0;
         border-radius: 5px;
         border: 1px solid #ccc;
         font-size: 16px;
+        box-sizing: border-box;
       }
 
       button {
@@ -64,10 +69,31 @@
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
+        width: 100%;
       }
 
       button:hover {
         background-color: darkred;
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        nav a {
+          display: block;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        button {
+          font-size: 16px;
+        }
       }
     </style>
   </head>
@@ -84,7 +110,7 @@
     <div class="contact-info">
       <p>Email: link@lifewaymi.org</p>
       <p>Phone: +254 706124127</p>
-	<p>WhatsApp: +254 706124127</p>
+      <p>WhatsApp: +254 706124127</p>
       <p>Address: P.O. Box 80, Nairobi, Kenya</p>
     </div>
 
@@ -95,8 +121,11 @@
       <textarea rows="4" placeholder="Your Message" required></textarea><br>
       <button type="submit">Send</button>
     </form>
-<a href="index.html">
-  <button style="margin-top: 20px; padding: 10px 20px; background-color: maroon; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-    ← Back to Home
-  </button>
-</a>
+
+    <a href="index.html">
+      <button style="margin-top: 20px;">
+        ← Back to Home
+      </button>
+    </a>
+  </body>
+</html>
