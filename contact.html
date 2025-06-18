@@ -114,9 +114,15 @@
       <p>Address: P.O. Box 80, Nairobi, Kenya</p>
     </div>
 
-  <form action="https://formspree.io/f/xpwrllzb" method="POST">
+ <form action="https://formspree.io/f/xpwrllzb" method="POST">
   <h2 style="color: maroon;">Send Us a Message</h2>
 
+  <!-- Hidden fields -->
+  <input type="hidden" name="_subject" value="New message from LINK Training College website">
+  <input type="hidden" name="_redirect" value="https://linkcollege.github.io/linktrainingcollege/thanks.html">
+  <input type="hidden" name="_autoresponse" value="Thank you for contacting LINK Training College. We have received your message and will respond within 24 hours.">
+
+  <!-- Visible fields -->
   <input type="text" name="name" placeholder="Your Name" required><br>
   <input type="email" name="email" placeholder="Your Email" required><br>
   <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
