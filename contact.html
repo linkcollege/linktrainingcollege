@@ -114,13 +114,19 @@
       <p>Address: P.O. Box 80, Nairobi, Kenya</p>
     </div>
 
-    <form>
-      <h2 style="color: maroon;">Send Us a Message</h2>
-      <input type="text" placeholder="Your Name" required><br>
-      <input type="email" placeholder="Your Email" required><br>
-      <textarea rows="4" placeholder="Your Message" required></textarea><br>
-      <button type="submit">Send</button>
-    </form>
+  <form action="https://formspree.io/f/xpwrllzb" method="POST">
+  <h2 style="color: maroon;">Send Us a Message</h2>
+
+  <input type="text" name="name" placeholder="Your Name" required><br>
+  <input type="email" name="email" placeholder="Your Email" required><br>
+  <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
+
+  <button type="submit">Send</button>
+</form>
+
+<p style="color: green; font-weight: bold;">
+  We will respond within 24 hours. Thank you for reaching out!
+</p>
 
     <a href="index.html">
       <button style="margin-top: 20px;">
