@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Our Courses</title>
+    <title>Courses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
@@ -11,45 +11,23 @@
         padding: 20px;
         margin: 0;
       }
-
-      nav {
-        background-color: maroon;
-        padding: 10px 0;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
       h1 {
         color: blue;
-        margin-top: 20px;
         font-size: 36px;
+        margin-top: 20px;
       }
-
       ul {
         list-style-type: none;
         padding: 0;
         margin: 20px auto;
         max-width: 600px;
       }
-
       li {
         color: maroon;
         font-size: 18px;
         margin: 10px 0;
       }
-
       button {
-        margin-top: 20px;
         padding: 10px 20px;
         background-color: maroon;
         color: white;
@@ -57,42 +35,27 @@
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
+        margin-top: 20px;
       }
-
-      button:hover {
-        background-color: darkred;
+      footer {
+        background-color: maroon;
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        margin-top: 40px;
       }
-
-      /* Mobile responsiveness */
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 28px;
-        }
-
-        nav a {
-          display: block;
-          margin: 10px 0;
-        }
-
-        li {
-          font-size: 16px;
-        }
-
-        button {
-          width: 100%;
-          font-size: 16px;
-        }
+      footer p {
+        margin: 5px 0;
       }
     </style>
   </head>
   <body>
-   <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="courses.html">Courses</a>
-  <a href="contact.html">Contact</a>
-  <a href="gallery.html">Gallery</a>
-</nav>
+    <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+    </script>
 
     <h1>Courses Offered</h1>
 
@@ -105,20 +68,10 @@
       <li>Procurement</li>
       <li>Human Resource Management</li>
     </ul>
-<p>
-  <a href="Brochure.pdf" target="_blank" style="color: maroon; font-weight: bold;">
-    📄 Download Our Course Brochure
-  </a>
-  <a href="APPLICATION FORM.pdf" target="_blank">
-  <button style="margin-top: 20px; padding: 10px 20px; background-color: maroon; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-    📄 Download APPLICATION FORM
-  </button>
-</a>
-</p>
-    <a href="index.html">
-      <button>← Back to Home</button>
-    </a>
-     <footer>
+
+    <a href="index.html"><button>← Back to Home</button></a>
+
+    <footer>
       <p>&copy; 2025 LINK Training College. All rights reserved.</p>
       <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
     </footer>
