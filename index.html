@@ -11,80 +11,44 @@
         padding: 20px;
         margin: 0;
       }
-
-      nav {
-        background-color: maroon;
-        padding: 10px 0;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
       h1 {
         color: blue;
         font-size: 36px;
         margin-top: 20px;
       }
-
-      p {
+      p, li {
         color: maroon;
         font-size: 18px;
-        margin-bottom: 20px;
       }
-
       ul {
         list-style-type: none;
         padding: 0;
       }
-
-      li {
-        color: maroon;
-        font-size: 20px;
-        margin: 10px 0;
-      }
-
       img {
         width: 90%;
         max-width: 300px;
-        height: auto;
         border-radius: 10px;
         margin-top: 20px;
       }
-
-      /* Mobile tweaks */
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 28px;
-        }
-
-        nav a {
-          display: block;
-          margin: 10px 0;
-        }
-
-        li {
-          font-size: 16px;
-        }
+      footer {
+        background-color: maroon;
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        margin-top: 40px;
+      }
+      footer p {
+        margin: 5px 0;
       }
     </style>
   </head>
   <body>
-    <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="courses.html">Courses</a>
-  <a href="contact.html">Contact</a>
-  <a href="gallery.html">Gallery</a>
-</nav>
+    <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+    </script>
 
     <h1>LINK Training College</h1>
     <p>Oasis Of Excellence.</p>
@@ -96,7 +60,8 @@
     </ul>
 
     <img src="link.jpg" alt="link">
-     <footer>
+
+    <footer>
       <p>&copy; 2025 LINK Training College. All rights reserved.</p>
       <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
     </footer>
