@@ -11,18 +11,39 @@
         padding: 20px;
         margin: 0;
       }
+
+      nav {
+        background-color: maroon;
+        padding: 10px 0;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
       h1 {
         color: blue;
-        font-size: 36px;
         margin-top: 20px;
+        font-size: 36px;
       }
+
       p {
         color: maroon;
         font-size: 18px;
-        max-width: 600px;
         margin: 20px auto;
+        max-width: 600px;
       }
+
       button {
+        margin-top: 20px;
         padding: 10px 20px;
         background-color: maroon;
         color: white;
@@ -30,45 +51,57 @@
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
-        margin-top: 20px;
       }
-      footer {
-        background-color: maroon;
-        color: white;
-        padding: 15px;
-        font-size: 14px;
-        margin-top: 40px;
+
+      button:hover {
+        background-color: darkred;
       }
-      footer p {
-        margin: 5px 0;
+
+      /* Responsive tweaks */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        nav a {
+          display: block;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        button {
+          width: 100%;
+          font-size: 16px;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="navbar-placeholder"></div>
-    <script>
-      fetch("navbar.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
-    </script>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
     <h1>About LINK Training College</h1>
     <p>
-      We are dedicated to excellence, professionalism, and serving the community
+     We are dedicated to excellence, professionalism, and serving the community
       through transformative education. Our mission is to empower students with
       knowledge, skill, and character to impact society.
       Grounded in experiential learning and Godly servant leadership, we foster 
       a dynamic environment where students grow in excellence, innovation, and 
       purpose. Our programs are designed to inspire — empowering individuals to 
       become influential leaders who drive meaningful change and embody 
-      integrity in every sphere of life.
+      integrity in every sphere of life
+
     </p>
 
-    <a href="index.html"><button>← Back to Home</button></a>
-
-    <footer>
-      <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-      <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
-    </footer>
+    <a href="index.html">
+      <button>← Back to Home</button>
+    </a>
   </body>
 </html>
