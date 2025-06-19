@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Application Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: #fffdd0;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        margin: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: blue;
+        margin-top: 20px;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: maroon;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: maroon;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: darkred;
+      }
+
+      footer {
+        background-color: maroon;
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        nav a {
+          display: block;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <script>
+      fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+
+    <h1>Student Application Form</h1>
+
+    <form action="https://formspree.io/f/xkgbzdzp" method="POST">
+      <!-- Hidden extras -->
+      <input type="hidden" name="_subject" value="New Student Application Submission" />
+      <input type="hidden" name="_redirect" value="https://linkcollege.github.io/linktrainingcollege/thanks.html" />
+      <input type="hidden" name="_autoresponse" value="Thank you for applying to LINK Training College. Your application has been received and will be reviewed shortly." />
+
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" name="dob" id="dob" required />
+
+      <label for="gender">Gender</label>
+      <select name="gender" id="gender" required>
+        <option value="">-- Select --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label for="idnumber">ID/Passport Number</label>
+      <input type="text" name="idnumber" id="idnumber" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="text" name="phone" id="phone" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="course">Course Applied For</label>
+      <select name="course" id="course" required>
+        <option value="">-- Select Course --</option>
+        <option>Social Work and Community Development</option>
+        <option>Nutrition and Dietetics</option>
+        <option>Community Health</option>
+        <option>Information Technology</option>
+        <option>Human Resource Management</option>
+        <option>Leadership and Theology</option>
+        <option>Procurement</option>
+      </select>
+
+      <label for="education">Education Background</label>
+      <textarea name="education" id="education" rows="3" required></textarea>
+
+      <label for="purpose">Why are you applying for this course?</label>
+      <textarea name="purpose" id="purpose" rows="4" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <footer>
+      <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+      <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+    </footer>
+  </body>
+</html>
