@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FAQs – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: blue;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      background-color: white;
+      padding: 15px 20px;
+      margin: 15px auto;
+      border-radius: 10px;
+      max-width: 800px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item h3 {
+      color: maroon;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: #333;
+      margin: 0;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-item">
+    <h3>How do I apply for a course?</h3>
+    <p>Visit our Apply page and fill in the online application form. Once submitted, our admissions office will contact you.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What courses are offered at LINK Training College?</h3>
+    <p>We offer programs in Community Health, Nutrition and Dietetics, Social Work, ICT, Theology, HRM, and more. Visit the Courses page for full details.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Where is the college located?</h3>
+    <p>We are located in Marsabit, Kenya. For more details, visit the Contact page.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Do you offer certificates and diplomas?</h3>
+    <p>Yes! We offer both certificate and diploma programs, registered and approved by TVET/CDACC.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is accommodation provided?</h3>
+    <p>We currently assist students in finding safe and affordable accommodation nearby.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+  </footer>
+</body>
+</html>
