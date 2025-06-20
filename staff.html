@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Staff – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: blue;
+      margin-bottom: 30px;
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .staff-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .staff-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .staff-name {
+      font-weight: bold;
+      color: maroon;
+      font-size: 18px;
+    }
+
+    .staff-title {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .staff-bio {
+      font-size: 14px;
+      color: #333;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>Meet Our Dedicated Staff</h1>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+      <img src="Duba.jpg" alt="Duba" />
+      <div class="staff-name">Mr. David Duba</div>
+      <div class="staff-title">College Principal</div>
+      <div class="staff-bio">Msc.Community Development, Chuka University
+        provides overall leadership and management of the institution, overseeing academic programs, 
+        staff performance, student welfare, and strategic development to ensure quality education and institutional growth.
+        A passionate leader committed to excellence and mentoring the next generation of professionals.</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Galmo.jpg" alt="Galmo" />
+      <div class="staff-name">Mrs. Galmo Wako</div>
+      <div class="staff-title">Director Online & Distance Learning</div>
+      <div class="staff-bio">BSc. Nutrition & Dietetics, Karatina University
+        Oversees the development, implementation, and quality assurance of virtual learning programs, 
+        ensuring accessible, flexible, and effective education for remote learners.</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Sharon.jpg" alt="Sharon" />
+      <div class="staff-name">Miss Sharon Tallam</div>
+      <div class="staff-title">Director Discipline and Welfare</div>
+      <div class="staff-bio">BSc. Nutrition & Dietetics, Baraton University of East Africa
+        Responsible for enforcing student conduct policies, handling disciplinary matters, and promoting student well-being 
+        through guidance, support services, and a safe, respectful learning environment.</div>
+    </div>
+    
+    <div class="staff-card">
+      <img src="Devison.jpg" alt="Devison" />
+      <div class="staff-name">Mr. Devison Mwamburi</div>
+      <div class="staff-title">Accademic Cordinator & Students Affairs</div>
+      <div class="staff-bio">BSc. Information Communication & Technology, Kissi University 
+        Ensures smooth academic operations and supports student welfare by coordinating programs, 
+        addressing student needs, and enhancing the overall learning experience.</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Ambrose.jpg" alt="Ambrose" />
+      <div class="staff-name">Mr. Ambrose Oduor</div>
+      <div class="staff-title">Teaching & Timetabling Officer</div>
+      <div class="staff-bio">BSc. Community Health and Development, Jomo Kenyatta University of Agriculture & Technology 
+        Responsible for organizing teaching schedules, allocating classrooms, coordinating faculty workloads, 
+        and ensuring the effective delivery of the academic timetable.
+        Visionary founder who believes in education as a tool for community transformation.</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Diba.jpg" alt="Diba" />
+      <div class="staff-name">John Diba)</div>
+      <div class="staff-title">Lifeway Global Dept.ED</div>
+      <div class="staff-bio">MSc. Business Management, KCA University
+        Overseeing operations, implementing strategic plans, managing Lifeway Glogal departments, 
+        and ensuring organizational goals are met efficiently and effectively.</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Aila.jpg" alt="Aila" />
+      <div class="staff-name">Dr. Aila Tasse</div>
+      <div class="staff-title">Founder & President Lifeway Global</div>
+      <div class="staff-bio">PhD. Transformational leadership, Bakke Graduate University
+        Executive Director, Lifeway Global | Global Speaker | Transformative Leadership Coach
+        Dedicated to equipping leaders with the skills and mindset to lead with purpose and impact. 
+        With a passion for personal growth and community transformation, 
+        he inspires change through coaching, strategic leadership, and values-driven engagement..</div>
+    </div>
+
+    <div class="staff-card">
+      <img src="Tom.jpg" alt="Tom" />
+      <div class="staff-name">Tom (Missionary)</div>
+      <div class="staff-title">Partnering Missionary</div>
+      <div class="staff-bio">Supporter and spiritual guide for the LINK family, walking alongside students in faith and purpose.</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+  </footer>
+</body>
+</html>
