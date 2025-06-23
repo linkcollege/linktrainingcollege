@@ -17,10 +17,10 @@
     .page-container {
       flex: 1;
       padding: 20px;
-      display: none; /* Hidden until password is entered */
+      display: none;
     }
 
-    h1, p {
+    h1, h2, p {
       text-align: center;
     }
 
@@ -82,19 +82,21 @@
       text-decoration: underline;
     }
 
-    #password-prompt {
+    #login-form {
       text-align: center;
       margin: 100px auto;
     }
 
-    #password-input {
+    #login-form input {
       padding: 10px;
+      margin: 10px;
+      width: 250px;
       font-size: 16px;
-      width: 200px;
-      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
-    #submit-btn {
+    #login-form button {
       padding: 10px 20px;
       font-size: 16px;
       background-color: maroon;
@@ -103,15 +105,20 @@
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 10px;
     }
 
-    #submit-btn:hover {
+    #login-form button:hover {
       background-color: darkred;
+    }
+
+    #error-msg {
+      color: red;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
   <script>
     fetch("navbar.html")
@@ -121,16 +128,18 @@
       });
   </script>
 
-  <!-- Password prompt -->
-  <div id="password-prompt">
-    <h2>Enter Portal Password</h2>
-    <input type="password" id="password-input" placeholder="Enter password" />
+  <!-- Login Prompt -->
+  <div id="login-form">
+    <h2>Student Login</h2>
+    <input type="text" id="regno" placeholder="Registration Number" />
     <br />
-    <button id="submit-btn">Submit</button>
-    <p id="error-msg" style="color: red;"></p>
+    <input type="password" id="password" placeholder="Portal Password" />
+    <br />
+    <button onclick="validateLogin()">Login</button>
+    <p id="error-msg"></p>
   </div>
 
-  <!-- Protected Content -->
+  <!-- Hidden Portal Content -->
   <div class="page-container" id="portal-content">
     <h1>Student Portal</h1>
     <p>Welcome to your learning space. Access academic resources, updates, and more below.</p>
@@ -146,23 +155,32 @@
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 LINK Training College. All rights reserved.</p>
     <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
     <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
   </footer>
 
+  <!-- Login Script -->
   <script>
-    const correctPassword = "link2025";
-    document.getElementById("submit-btn").addEventListener("click", () => {
-      const input = document.getElementById("password-input").value;
-      if (input === correctPassword) {
-        document.getElementById("password-prompt").style.display = "none";
+    const users = {
+      "LINK/CCH/001/25": "health25",
+      "LINK/DSW/012/25": "social25",
+      "LINK/N&D/005/25": "diet25"
+    };
+
+    function validateLogin() {
+      const reg = document.getElementById("regno").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      if (users[reg] === pass) {
+        document.getElementById("login-form").style.display = "none";
         document.getElementById("portal-content").style.display = "block";
       } else {
-        document.getElementById("error-msg").textContent = "Incorrect password. Please try again.";
+        document.getElementById("error-msg").textContent = "Incorrect registration number or password.";
       }
-    });
+    }
   </script>
 </body>
 </html>
