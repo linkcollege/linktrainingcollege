@@ -1,87 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Courses</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        background-color: #fffdd0;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-        margin: 0;
-      }
-      h1 {
-        color: blue;
-        font-size: 36px;
-        margin-top: 20px;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 20px auto;
-        max-width: 600px;
-      }
-      li {
-        color: maroon;
-        font-size: 18px;
-        margin: 10px 0;
-      }
-      button {
-        padding: 10px 20px;
-        background-color: maroon;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 20px;
-      }
-      footer {
-        background-color: maroon;
-        color: white;
-        padding: 15px;
-        font-size: 14px;
-        margin-top: 40px;
-      }
-      footer p {
-        margin: 5px 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="navbar-placeholder"></div>
-    <script>
-      fetch("navbar.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
-    </script>
+<head>
+  <title>Courses Offered – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
 
-    <h1>Courses Offered</h1>
+    h1 {
+      color: blue;
+      margin-bottom: 30px;
+    }
 
-    <ul>
-      <li>Social Work and Community Development</li>
-      <li>Nutrition and Dietetics</li>
-      <li>Information Technology</li>
-      <li>Community Health</li>
-      <li>Leadership and Theology</li>
-      <li>Procurement</li>
-      <li>Human Resource Management</li>
-    </ul>
-    <a href="Brochure.pdf" target="_blank">
-  <button style="margin-top: 20px; padding: 10px 20px; background-color: maroon; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-    📄 Download Course Brochure
-  </button>
-      <a href="APPLICATION FORM.pdf" target="_blank">
-  <button style="margin-top: 20px; padding: 10px 20px; background-color: maroon; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-    📄 APPLICATION FORM
-  </button>
-</a>
-    <a href="index.html"><button>← Back to Home</button></a>
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-    <footer>
-      <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-      <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
-    </footer>
-  </body>
+    .course-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: maroon;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .course-card:hover {
+      background-color: maroon;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>Courses Offered</h1>
+
+  <div class="course-grid">
+    <a href="course-community-health.html" class="course-card">Community Health</a>
+    <a href="course-nutrition.html" class="course-card">Nutrition and Dietetics</a>
+    <a href="course-social-work.html" class="course-card">Social Work & Community Development</a>
+    <a href="course-it.html" class="course-card">Information Technology</a>
+    <a href="course-hrm.html" class="course-card">Human Resource Management</a>
+    <a href="course-theology.html" class="course-card">Leadership and Theology</a>
+    <a href="course-procurement.html" class="course-card">Procurement</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+  </footer>
+</body>
 </html>
