@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>About Us</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-  body {
-    background-color: #fffdd0; /* Cream */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-    margin: 0;
-  }
+<head>
+  <title>About LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
 
-  h1 {
-    color: blue;
-    margin-top: 20px;
-  }
+    h1 {
+      color: blue;
+      margin-top: 20px;
+    }
 
-  p {
-    color: maroon;
-    font-size: 18px;
-    margin: 10px 0;
-  }
+    p {
+      color: maroon;
+      font-size: 18px;
+      margin: 10px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
 
-  a {
-    display: inline-block;
-    margin-top: 20px;
-    color: maroon;
-    text-decoration: none;
-    font-weight: bold;
-  }
+    a.back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: maroon;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  footer {
-    background-color: maroon;
-    color: white;
-    padding: 15px;
-    font-size: 14px;
-    margin-top: 40px;
-    text-align: center;
-  }
-   
-  </head>
-  <body>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="courses.html">Courses</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    footer {
+      background-color: maroon;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+      text-align: center;
+    }
 
-    <h1>About LINK Training College</h1>
-    <p>
-     We are dedicated to excellence, professionalism, and serving the community
-      through transformative education. Our mission is to empower students with
-      knowledge, skill, and character to impact society.
-      Grounded in experiential learning and Godly servant leadership, we foster 
-      a dynamic environment where students grow in excellence, innovation, and 
-      purpose. Our programs are designed to inspire — empowering individuals to 
-      become influential leaders who drive meaningful change and embody 
-      integrity in every sphere of life
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
 
-   </p>
+  <!-- Navigation bar placeholder -->
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
 
-    <a href="index.html"><button>← Back to Home</button></a>
+  <h1>About LINK Training College</h1>
 
-    <footer>
-      <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-      <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
-    </footer>
-  </body>
+  <p>
+    LINK Training College is a Christ-centered institution based in Marsabit, Kenya, 
+    committed to excellence, professionalism, and service to the community through 
+    transformative education. We exist to equip students spiritually, academically, and 
+    practically to serve and impact society in meaningful ways.
+  </p>
+
+  <p>
+    We offer diverse certificate and diploma programs in fields like Community Health, 
+    Nutrition, Social Work, Information Technology, Human Resource Management, Theology, 
+    and more. Our teaching is rooted in practical experience, mentorship, and strong values.
+  </p>
+
+  <p>
+    Whether you're seeking to begin your career or expand your professional skills, 
+    LINK is your training ground for personal transformation and community service.
+  </p>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+  </footer>
+</body>
 </html>
