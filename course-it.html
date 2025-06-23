@@ -2,12 +2,67 @@
 <html>
 <head>
   <title>Information Technology – LINK Training College</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>/* Same style as others */</style>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: blue;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: maroon;
+    }
+
+    ul {
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    a.back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: maroon;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <div id="navbar-placeholder"></div>
-  <script>fetch("navbar.html").then(r => r.text()).then(d => {document.getElementById("navbar-placeholder").innerHTML = d;});</script>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
 
   <h1>Information Technology</h1>
   <div class="content">
