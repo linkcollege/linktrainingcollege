@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Portal – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: blue;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: maroon;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .portal-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: maroon;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .portal-card:hover {
+      background-color: maroon;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>Student Portal</h1>
+  <p>Welcome to your learning space. Access academic resources, updates, and more below.</p>
+
+  <div class="portal-grid">
+    <a href="resources.html" class="portal-card">📘 Study Materials</a>
+    <a href="timetable.html" class="portal-card">📅 Timetable</a>
+    <a href="notices.html" class="portal-card">📢 Student Notices</a>
+    <a href="contact.html" class="portal-card">📩 Contact Admin</a>
+    <a href="downloads.html" class="portal-card">📥 Downloads</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
+  </footer>
+</body>
+</html>
