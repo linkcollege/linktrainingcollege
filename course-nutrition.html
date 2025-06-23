@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nutrition and Dietetics – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>/* Same style as others */</style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html").then(res => res.text()).then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    });
+  </script>
+
+  <h1>Nutrition and Dietetics</h1>
+  <div class="content">
+    <h2>Course Overview</h2>
+    <p>This program equips learners with nutritional skills to assess, plan, and deliver dietary interventions and promote wellness.</p>
+
+    <h2>Objectives</h2>
+    <ul>
+      <li>Assess and analyze nutritional needs</li>
+      <li>Plan appropriate diets and interventions</li>
+      <li>Support food safety, hygiene, and public health</li>
+    </ul>
+
+    <h2>Entry Requirements</h2>
+    <ul>
+      <li>C- (Minus) in KCSE with at least D+ in Biology/Chemistry for Diploma</li>
+      <li>D  (Plain) in KCSE with at least D in Biology/Chemistry for Certificate</li>
+    </ul>
+
+    <h2>Duration</h2>
+    <ul>
+      <li>Diploma: 6 semesters</li>
+      <li>Certificate: 4 semesters</li>
+    </ul>
+
+    <a href="courses.html" class="back-link">← Back to Courses</a>
+  </div>
+  <footer><p>&copy; 2025 LINK Training College. All rights reserved.</p></footer>
+</body>
+</html>
