@@ -190,7 +190,7 @@
       <a href="contact.html" class="portal-card">📩 Contact Admin</a>
       <a href="downloads.html" class="portal-card">📥 Downloads</a>
     </div>
-
+    <a href="portal.html" class="back-link">🚪 Logout</a>
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
 
@@ -205,7 +205,7 @@
       <a href="https://drive.google.com/" target="_blank" class="portal-card">📄 Uploads</a>
       <a href="#" class="portal-card">🧑‍🎓 Manage Students</a>
     </div>
-
+    <a href="portal.html" class="back-link">🚪 Logout</a>
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
 
@@ -227,11 +227,10 @@
     };
 
     const adminUser = {
-      username: "adminlink",
+      username:
       "adminlink": "super2025",
       "director": "linkboss",
       "registrar": "records24"
-      password: "super2025"
     };
 
     function showLogin(role) {
@@ -254,16 +253,16 @@
       }
     }
 
-    function validateAdmin() {
-      const user = document.getElementById("admin-user").value.trim();
-      const pass = document.getElementById("admin-pass").value.trim();
-      if (user === adminUser.username && pass === adminUser.password) {
-        document.getElementById("admin-login").style.display = "none";
-        document.getElementById("admin-portal").style.display = "block";
-      } else {
-        document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
-      }
-    }
+  function validateAdmin() {
+  const user = document.getElementById("admin-user").value.trim();
+  const pass = document.getElementById("admin-pass").value.trim();
+  if (adminUsers[user] === pass) {
+    document.getElementById("admin-login").style.display = "none";
+    document.getElementById("admin-portal").style.display = "block";
+  } else {
+    document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
+  }
+}
   </script>
 </body>
 </html>
