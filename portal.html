@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student Portal – LINK Training College</title>
+  <title>Student & Staff Portal – LINK Training College</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     html, body {
@@ -35,7 +35,7 @@
       margin-bottom: 30px;
     }
 
-    .portal-grid {
+    .portal-grid, .admin-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
@@ -82,12 +82,33 @@
       text-decoration: underline;
     }
 
-    #login-form {
+    .login-options {
       text-align: center;
-      margin: 100px auto;
+      margin-top: 100px;
     }
 
-    #login-form input {
+    .login-options button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: maroon;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-options button:hover {
+      background-color: darkred;
+    }
+
+    .login-form {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .login-form input {
       padding: 10px;
       margin: 10px;
       width: 250px;
@@ -96,7 +117,7 @@
       border-radius: 5px;
     }
 
-    #login-form button {
+    .login-form button {
       padding: 10px 20px;
       font-size: 16px;
       background-color: maroon;
@@ -107,13 +128,12 @@
       cursor: pointer;
     }
 
-    #login-form button:hover {
+    .login-form button:hover {
       background-color: darkred;
     }
 
     #error-msg {
       color: red;
-      margin-top: 10px;
     }
   </style>
 </head>
@@ -128,19 +148,38 @@
       });
   </script>
 
-  <!-- Login Prompt -->
-  <div id="login-form">
+  <!-- Login Options -->
+  <div class="login-options" id="role-select">
+    <h2>Welcome to the LINK Portal</h2>
+    <p>Please choose your access type:</p>
+    <button onclick="showLogin('student')">🎓 Student Login</button>
+    <button onclick="showLogin('admin')">👨‍💼 Admin Login</button>
+  </div>
+
+  <!-- Student Login Form -->
+  <div class="login-form" id="student-login" style="display: none;">
     <h2>Student Login</h2>
     <input type="text" id="regno" placeholder="Registration Number" />
     <br />
-    <input type="password" id="password" placeholder="Portal Password" />
+    <input type="password" id="student-password" placeholder="Password" />
     <br />
-    <button onclick="validateLogin()">Login</button>
-    <p id="error-msg"></p>
+    <button onclick="validateStudent()">Login</button>
+    <p id="student-error-msg"></p>
   </div>
 
-  <!-- Hidden Portal Content -->
-  <div class="page-container" id="portal-content">
+  <!-- Admin Login Form -->
+  <div class="login-form" id="admin-login" style="display: none;">
+    <h2>Admin Login</h2>
+    <input type="text" id="admin-user" placeholder="Username" />
+    <br />
+    <input type="password" id="admin-pass" placeholder="Password" />
+    <br />
+    <button onclick="validateAdmin()">Login</button>
+    <p id="admin-error-msg"></p>
+  </div>
+
+  <!-- Student Portal Content -->
+  <div class="page-container" id="student-portal">
     <h1>Student Portal</h1>
     <p>Welcome to your learning space. Access academic resources, updates, and more below.</p>
 
@@ -155,6 +194,21 @@
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
 
+  <!-- Admin Portal Content -->
+  <div class="page-container" id="admin-portal">
+    <h1>Hi there, welcome</h1>
+    <p>Administrator Panel – Manage student operations and college resources</p>
+
+    <div class="admin-grid">
+      <a href="https://formspree.io/" target="_blank" class="portal-card">✅ View Applications</a>
+      <a href="notices.html" class="portal-card">📢 Post Notices</a>
+      <a href="https://drive.google.com/" target="_blank" class="portal-card">📄 Uploads</a>
+      <a href="#" class="portal-card">🧑‍🎓 Manage Students</a>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 LINK Training College. All rights reserved.</p>
@@ -162,23 +216,47 @@
     <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
   </footer>
 
-  <!-- Login Script -->
+  <!-- Login Logic -->
   <script>
-    const users = {
+    const studentUsers = {
       "LINK/CCH/001/25": "health25",
       "LINK/DSW/012/25": "social25",
       "LINK/N&D/005/25": "diet25"
     };
 
-    function validateLogin() {
-      const reg = document.getElementById("regno").value.trim();
-      const pass = document.getElementById("password").value.trim();
+    const adminUser = {
+      username: "adminlink",
+      password: "super2025"
+    };
 
-      if (users[reg] === pass) {
-        document.getElementById("login-form").style.display = "none";
-        document.getElementById("portal-content").style.display = "block";
+    function showLogin(role) {
+      document.getElementById("role-select").style.display = "none";
+      if (role === 'student') {
+        document.getElementById("student-login").style.display = "block";
       } else {
-        document.getElementById("error-msg").textContent = "Incorrect registration number or password.";
+        document.getElementById("admin-login").style.display = "block";
+      }
+    }
+
+    function validateStudent() {
+      const reg = document.getElementById("regno").value.trim();
+      const pass = document.getElementById("student-password").value.trim();
+      if (studentUsers[reg] === pass) {
+        document.getElementById("student-login").style.display = "none";
+        document.getElementById("student-portal").style.display = "block";
+      } else {
+        document.getElementById("student-error-msg").textContent = "Invalid student credentials.";
+      }
+    }
+
+    function validateAdmin() {
+      const user = document.getElementById("admin-user").value.trim();
+      const pass = document.getElementById("admin-pass").value.trim();
+      if (user === adminUser.username && pass === adminUser.password) {
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("admin-portal").style.display = "block";
+      } else {
+        document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
       }
     }
   </script>
