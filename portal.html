@@ -218,41 +218,51 @@
 
   <!-- Login Logic -->
   <script>
-    const studentUsers = {
-      "LINK/CCH/001/25": "health25",
-      "LINK/DSW/012/25": "social25",
-      "LINK/N&D/005/25": "diet25",
-      "LINK/IT/007/25": "tech2025",
-      "LINK/CCH/002/25": "nurse25",
-    };
+  const studentUsers = {
+    "LINK/CCH/001/25": "health25",
+    "LINK/DSW/012/25": "social25",
+    "LINK/N&D/005/25": "diet25",
+    "LINK/IT/007/25": "tech2025",
+    "LINK/CCH/002/25": "nurse25"
+  };
 
-    const adminUsers = {
-  "adminlink": "super2025",
-  "director": "linkboss",
-  "registrar": "records24"
-};
+  const adminUsers = {
+    "adminlink": "super2025",
+    "director": "linkboss",
+    "registrar": "records24"
+  };
 
-    function validateStudent() {
-      const reg = document.getElementById("regno").value.trim();
-      const pass = document.getElementById("student-password").value.trim();
-      if (studentUsers[reg] === pass) {
-        document.getElementById("student-login").style.display = "none";
-        document.getElementById("student-portal").style.display = "block";
-      } else {
-        document.getElementById("student-error-msg").textContent = "Invalid student credentials.";
-      }
+  // ✅ ADD THIS FUNCTION:
+  function showLogin(role) {
+    document.getElementById("role-select").style.display = "none";
+    if (role === "student") {
+      document.getElementById("student-login").style.display = "block";
+    } else if (role === "admin") {
+      document.getElementById("admin-login").style.display = "block";
     }
+  }
+
+  function validateStudent() {
+    const reg = document.getElementById("regno").value.trim();
+    const pass = document.getElementById("student-password").value.trim();
+    if (studentUsers[reg] === pass) {
+      document.getElementById("student-login").style.display = "none";
+      document.getElementById("student-portal").style.display = "block";
+    } else {
+      document.getElementById("student-error-msg").textContent = "Invalid student credentials.";
+    }
+  }
 
   function validateAdmin() {
-  const user = document.getElementById("admin-user").value.trim();
-  const pass = document.getElementById("admin-pass").value.trim();
-  if (adminUsers[user] === pass) {
-    document.getElementById("admin-login").style.display = "none";
-    document.getElementById("admin-portal").style.display = "block";
-  } else {
-    document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
+    const user = document.getElementById("admin-user").value.trim();
+    const pass = document.getElementById("admin-pass").value.trim();
+    if (adminUsers[user] === pass) {
+      document.getElementById("admin-login").style.display = "none";
+      document.getElementById("admin-portal").style.display = "block";
+    } else {
+      document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
+    }
   }
-}
-  </script>
+</script>
 </body>
 </html>
