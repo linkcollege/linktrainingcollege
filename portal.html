@@ -232,17 +232,6 @@
   "registrar": "records24"
 };
 
-   function validateAdmin() {
-  const user = document.getElementById("admin-user").value.trim();
-  const pass = document.getElementById("admin-pass").value.trim();
-  if (adminUsers[user] === pass) {
-    document.getElementById("admin-login").style.display = "none";
-    document.getElementById("admin-portal").style.display = "block";
-  } else {
-    document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
-  }
-}
-
     function validateStudent() {
       const reg = document.getElementById("regno").value.trim();
       const pass = document.getElementById("student-password").value.trim();
