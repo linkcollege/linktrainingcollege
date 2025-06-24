@@ -226,21 +226,22 @@
       "LINK/CCH/002/25": "nurse25",
     };
 
-    const adminUser = {
-      username:
-      "adminlink": "super2025",
-      "director": "linkboss",
-      "registrar": "records24"
-    };
+    const adminUsers = {
+  "adminlink": "super2025",
+  "director": "linkboss",
+  "registrar": "records24"
+};
 
-    function showLogin(role) {
-      document.getElementById("role-select").style.display = "none";
-      if (role === 'student') {
-        document.getElementById("student-login").style.display = "block";
-      } else {
-        document.getElementById("admin-login").style.display = "block";
-      }
-    }
+   function validateAdmin() {
+  const user = document.getElementById("admin-user").value.trim();
+  const pass = document.getElementById("admin-pass").value.trim();
+  if (adminUsers[user] === pass) {
+    document.getElementById("admin-login").style.display = "none";
+    document.getElementById("admin-portal").style.display = "block";
+  } else {
+    document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
+  }
+}
 
     function validateStudent() {
       const reg = document.getElementById("regno").value.trim();
