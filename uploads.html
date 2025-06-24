@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uploads – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: blue;
+    }
+
+    ul {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      text-decoration: none;
+      color: maroon;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>📥 Student & Admin Uploads</h1>
+
+  <ul>
+    <li><a href="docs/fee-structure.pdf" target="_blank">💰 Download Fee Structure</a></li>
+    <li><a href="docs/exam-timetable.pdf" target="_blank">🕒 Download Exam Timetable</a></li>
+    <li><a href="docs/course-outline.pdf" target="_blank">📘 Download Course Outline</a></li>
+    <li><a href="docs/student-handbook.pdf" target="_blank">📚 Student Handbook</a></li>
+  </ul>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
+</body>
+</html>
