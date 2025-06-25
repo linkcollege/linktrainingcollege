@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Students – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: blue;
+      margin-top: 20px;
+    }
+
+    .placeholder-box {
+      background-color: white;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .placeholder-box p {
+      color: maroon;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>🧑‍🎓 Manage Students</h1>
+
+  <div class="placeholder-box">
+    <p>This section is currently under development.</p>
+    <p>In the future, admins will be able to:</p>
+    <ul style="text-align: left; max-width: 500px; margin: 20px auto; color: #333;">
+      <li>📋 View student profiles</li>
+      <li>📝 Edit or update student records</li>
+      <li>➕ Add or admit new students</li>
+      <li>🗑️ Remove inactive records</li>
+      <li>🔐 Reset passwords</li>
+    </ul>
+    <p>For now, please continue using the portal to access available admin functions.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
+</body>
+</html>
