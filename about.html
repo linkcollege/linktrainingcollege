@@ -42,6 +42,11 @@
       text-align: center;
     }
 
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
       nav a {
         display: block;
@@ -84,9 +89,15 @@
 
   <a href="index.html" class="back-link">← Back to Home</a>
 
-  <footer>
-    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-    <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
-  </footer>
+  <!-- Shared footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+
 </body>
 </html>
