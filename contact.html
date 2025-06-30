@@ -84,9 +84,14 @@
 <p style="color: green; font-weight: bold;">
   We will respond within 24 hours. Thank you for reaching out!
 </p>
-    <footer>
-      <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-      <p>Email: link@lifewaymi.org | Phone: +254 706124127</p>
-    </footer>
-  </body>
+     <div id="footer-placeholder"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+
+</body>
 </html>
