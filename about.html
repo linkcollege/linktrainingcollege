@@ -12,6 +12,31 @@
       margin: 0;
     }
 
+    nav {
+      background-color: maroon;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 5px 0;
+    }
+
+    .nav-row a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 15px;
+    }
+
+    .nav-row a:hover {
+      text-decoration: underline;
+    }
+
     h1 {
       color: blue;
       margin-top: 20px;
@@ -33,9 +58,31 @@
       font-weight: bold;
     }
 
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
     @media (max-width: 600px) {
-      nav a {
-        display: block;
+      .nav-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-row a {
         margin: 10px 0;
       }
     }
@@ -43,14 +90,19 @@
 </head>
 <body>
 
-  <div id="navbar-placeholder"></div>
-  <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-      });
-  </script>
+  <!-- Manual 2-row navigation -->
+  <nav>
+    <div class="nav-row">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+    </div>
+    <div class="nav-row">
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="portal.html">Portal</a>
+    </div>
+  </nav>
 
   <h1>About LINK Training College</h1>
 
@@ -74,14 +126,11 @@
 
   <a href="index.html" class="back-link">← Back to Home</a>
 
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
-  </script>
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
 
 </body>
 </html>
