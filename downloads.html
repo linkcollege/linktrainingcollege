@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Downloads – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: blue;
+      text-align: center;
+    }
+
+    h2 {
+      color: maroon;
+      border-bottom: 2px solid maroon;
+      max-width: 600px;
+      margin: 40px auto 10px;
+      font-size: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 10px auto 30px;
+    }
+
+    li {
+      background: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      color: maroon;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin: 30px 0 10px;
+      color: maroon;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>📥 Student Downloads</h1>
+
+  <h2>Course Notes</h2>
+  <ul>
+    <li><a href="downloads/CommunityHealth_Level5.pdf" target="_blank">📘 Community Health Level 5 Notes</a></li>
+    <li><a href="downloads/Nutrition_Basics.pdf" target="_blank">🥗 Nutrition Basics</a></li>
+  </ul>
+
+  <h2>Forms & Resources</h2>
+  <ul>
+    <li><a href="downloads/FeesStructure_2025.pdf" target="_blank">💰 2025 Fees Structure</a></li>
+    <li><a href="downloads/ApplicationForm.pdf" target="_blank">📝 Student Application Form</a></li>
+    <li><a href="downloads/Student_Handbook.pdf" target="_blank">📖 Student Handbook</a></li>
+  </ul>
+
+  <h2>Past Papers</h2>
+  <ul>
+    <li><a href="downloads/KNEC_SW_Level6_2023.pdf" target="_blank">📄 Social Work Level 6 – 2023</a></li>
+    <li><a href="downloads/CHA_Paper2022.pdf" target="_blank">📄 Community Health Assistant – 2022</a></li>
+  </ul>
+
+  <a href="portal.html" class="back-link">← Back to Student Portal</a>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
+
+</body>
+</html>
