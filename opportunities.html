@@ -82,27 +82,32 @@
         document.getElementById("navbar-placeholder").innerHTML = data;
       });
   </script>
-
+<script>
+  // Load Vacancies from JSON
+  fetch("vacancies.json")
+    .then(response => response.json())
+    .then(data => {
+      const list = document.getElementById("vacancy-list");
+      data.forEach(job => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>📘 Position:</strong> ${job.position}<br>
+          <strong>📅 Deadline:</strong> ${job.deadline}<br>
+          <strong>📄 Summary:</strong> ${job.summary}
+        `;
+        list.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading vacancies:", error);
+      document.getElementById("vacancy-list").innerHTML = "<li>Unable to load vacancies at this time.</li>";
+    });
+</script>
   <h1>Job Opportunities</h1>
   <p>Find open vacancies and submit your application below.</p>
 
   <h2>🔍 Current Vacancies</h2>
-  <ul class="vacancies">
-    <li>
-      <strong>📘 Position:</strong> Community Health Trainer<br>
-      <strong>📅 Deadline:</strong> August 15, 2025<br>
-      <strong>📄 Summary:</strong> Seeking a qualified diploma/degree holder in Public Health or Community Health to facilitate Level 5 & 6 courses. Teaching experience preferred.
-    </li>
-    <li>
-      <strong>🖥️ Position:</strong> Part-time ICT Lecturer<br>
-      <strong>📅 Deadline:</strong> August 10, 2025<br>
-      <strong>📄 Summary:</strong> Must be proficient in computer systems, networking, and web development. Experience with TVET curriculum a plus.
-    </li>
-    <li>
-      <strong>📑 Position:</strong> Administrative Assistant (Intern)<br>
-      <strong>📅 Deadline:</strong> July 31, 2025<br>
-      <strong>📄 Summary:</strong> Office support role involving filing, document handling, and receptionist duties. Must be organized and fluent in English.
-    </li>
+  <ul <ul id="vacancy-list" class="vacancies"></ul>
   </ul>
 
   <h2>📎 Submit Your Application</h2>
