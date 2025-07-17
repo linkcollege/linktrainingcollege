@@ -82,8 +82,13 @@
         document.getElementById("navbar-placeholder").innerHTML = data;
       });
   </script>
-<script>
-  // Load Vacancies from JSON
+
+  <h1>Job Opportunities</h1>
+  <p>Find open vacancies and submit your application below.</p>
+
+  <h2>🔍 Current Vacancies</h2>
+  <ul <ul id="vacancy-list" class="vacancies"></ul>
+  <script>
   fetch("vacancies.json")
     .then(response => response.json())
     .then(data => {
@@ -103,12 +108,6 @@
       document.getElementById("vacancy-list").innerHTML = "<li>Unable to load vacancies at this time.</li>";
     });
 </script>
-  <h1>Job Opportunities</h1>
-  <p>Find open vacancies and submit your application below.</p>
-
-  <h2>🔍 Current Vacancies</h2>
-  <ul <ul id="vacancy-list" class="vacancies"></ul>
-  </ul>
 
   <h2>📎 Submit Your Application</h2>
   <p>Only PDF uploads are accepted through the form below.</p>
