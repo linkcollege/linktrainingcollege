@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Opportunities – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      background-color: #fffdd0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: blue;
+      margin-top: 30px;
+    }
+
+    p {
+      color: maroon;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: maroon;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background-color: darkred;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <h1>Job Opportunities</h1>
+  <p>We're always looking for qualified, passionate individuals to join us.<br>
+  Submit your application documents using the link below.</p>
+
+  <a href="Upload Forms" target="_blank" class="button">📎 Submit Application (PDF Only)</a>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
+
+</body>
+</html>
