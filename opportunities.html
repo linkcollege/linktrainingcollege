@@ -13,19 +13,35 @@
       text-align: center;
     }
 
-    h1 {
+    h1, h2 {
       color: blue;
-      margin-top: 30px;
     }
 
-    p {
+    p, li {
       color: maroon;
       font-size: 18px;
-      margin-bottom: 30px;
+      line-height: 1.5;
     }
 
-    a.button {
+    ul.vacancies {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul.vacancies li {
+      background-color: white;
+      margin: 10px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .button {
       display: inline-block;
+      margin-top: 30px;
       padding: 15px 30px;
       background-color: maroon;
       color: white;
@@ -34,7 +50,7 @@
       font-weight: bold;
     }
 
-    a.button:hover {
+    .button:hover {
       background-color: darkred;
     }
 
@@ -58,6 +74,7 @@
 </head>
 <body>
 
+  <!-- Load Navbar -->
   <div id="navbar-placeholder"></div>
   <script>
     fetch("navbar.html")
@@ -68,10 +85,30 @@
   </script>
 
   <h1>Job Opportunities</h1>
-  <p>We're always looking for qualified, passionate individuals to join us.<br>
-  Submit your application documents using the link below.</p>
+  <p>Find open vacancies and submit your application below.</p>
 
-  <a href="https://forms.gle/55oenvCg5yDGASfa8" target="_blank" class="button">📎 Submit Application (PDF Only)</a>
+  <h2>🔍 Current Vacancies</h2>
+  <ul class="vacancies">
+    <li>
+      <strong>📘 Position:</strong> Community Health Trainer<br>
+      <strong>📅 Deadline:</strong> August 15, 2025<br>
+      <strong>📄 Summary:</strong> Seeking a qualified diploma/degree holder in Public Health or Community Health to facilitate Level 5 & 6 courses. Teaching experience preferred.
+    </li>
+    <li>
+      <strong>🖥️ Position:</strong> Part-time ICT Lecturer<br>
+      <strong>📅 Deadline:</strong> August 10, 2025<br>
+      <strong>📄 Summary:</strong> Must be proficient in computer systems, networking, and web development. Experience with TVET curriculum a plus.
+    </li>
+    <li>
+      <strong>📑 Position:</strong> Administrative Assistant (Intern)<br>
+      <strong>📅 Deadline:</strong> July 31, 2025<br>
+      <strong>📄 Summary:</strong> Office support role involving filing, document handling, and receptionist duties. Must be organized and fluent in English.
+    </li>
+  </ul>
+
+  <h2>📎 Submit Your Application</h2>
+  <p>Only PDF uploads are accepted through the form below.</p>
+  <a href="https://forms.gle/2P2v7sxPkH82ALKc8" target="_blank" class="button">Submit Application</a>
 
   <footer>
     <p>&copy; 2025 LINK Training College. All rights reserved.</p>
