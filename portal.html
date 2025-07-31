@@ -1,85 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student & Staff Portal – LINK Training College</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student, Staff & Admin Portal – LINK Training College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #fffdd0;
       font-family: Arial, sans-serif;
+      background-color: #fffdd0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    .page-container {
-      flex: 1;
-      padding: 20px;
-      display: none;
-    }
-
     h1, h2, p {
       text-align: center;
-    }
-
-    h1 {
-      color: blue;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: maroon;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .portal-grid, .admin-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-    }
-
-    .portal-card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      color: maroon;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .portal-card:hover {
-      background-color: maroon;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 20px 0;
-      text-decoration: none;
-      color: maroon;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: maroon;
-      color: black;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: underline;
     }
 
     .login-options {
@@ -91,11 +27,11 @@
       padding: 15px 30px;
       margin: 10px;
       font-size: 18px;
-      font-weight: bold;
       background-color: maroon;
       color: white;
       border: none;
       border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
     }
 
@@ -132,13 +68,64 @@
       background-color: darkred;
     }
 
-    #error-msg {
-      color: red;
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .portal-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: maroon;
+      font-weight: bold;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .portal-card:hover {
+      background-color: maroon;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .page-container {
+      display: none;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .back-link {
+      text-align: center;
+      display: block;
+      margin: 30px auto;
+      color: maroon;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: maroon;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
   <script>
     fetch("navbar.html")
       .then(res => res.text())
@@ -147,11 +134,12 @@
       });
   </script>
 
-  <!-- Login Options -->
+  <!-- Login Role Options -->
   <div class="login-options" id="role-select">
     <h2>Welcome to the LINK Portal</h2>
     <p>Please choose your access type:</p>
     <button onclick="showLogin('student')">🎓 Student Login</button>
+    <button onclick="showLogin('staff')">👨‍🏫 Staff Login</button>
     <button onclick="showLogin('admin')">👨‍💼 Admin Login</button>
   </div>
 
@@ -159,25 +147,36 @@
   <div class="login-form" id="student-login" style="display: none;">
     <h2>Student Login</h2>
     <input type="text" id="regno" placeholder="Registration Number" />
-    <br />
+    <br>
     <input type="password" id="student-password" placeholder="Password" />
-    <br />
+    <br>
     <button onclick="validateStudent()">Login</button>
     <p id="student-error-msg"></p>
+  </div>
+
+  <!-- Staff Login Form -->
+  <div class="login-form" id="staff-login" style="display: none;">
+    <h2>Staff Login</h2>
+    <input type="text" id="staff-user" placeholder="Staff ID" />
+    <br>
+    <input type="password" id="staff-pass" placeholder="Password" />
+    <br>
+    <button onclick="validateStaff()">Login</button>
+    <p id="staff-error-msg"></p>
   </div>
 
   <!-- Admin Login Form -->
   <div class="login-form" id="admin-login" style="display: none;">
     <h2>Admin Login</h2>
     <input type="text" id="admin-user" placeholder="Username" />
-    <br />
+    <br>
     <input type="password" id="admin-pass" placeholder="Password" />
-    <br />
+    <br>
     <button onclick="validateAdmin()">Login</button>
     <p id="admin-error-msg"></p>
   </div>
 
-  <!-- Student Portal Content -->
+  <!-- STUDENT PORTAL -->
   <div class="page-container" id="student-portal">
     <h1>Student Portal</h1>
     <p>Welcome to your learning space. Access academic resources, updates, and more below.</p>
@@ -192,9 +191,20 @@
     <a href="portal.html" class="back-link">🚪 Logout</a>
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
+  <!-- STAFF PORTAL -->
+  <div class="page-container" id="staff-portal">
+    <h1>Staff Portal</h1>
+    <p>Welcome, Staff. Use the tools below to manage your duties.</p>
 
-  <!-- Admin Portal Content -->
-  <div class="page-container" id="admin-portal">
+    <div class="portal-grid">
+      <a href="notices.html" class="portal-card">📢 View Notices</a>
+      <a href="post-notice.html" class="portal-card">📝 Post Notice</a>
+    </div>
+    <a href="portal.html" class="back-link">🚪 Logout</a>
+  </div>
+
+  <!-- ADMIN PORTAL -->
+<div class="page-container" id="admin-portal">
     <h1>Hi there, welcome</h1>
     <p>Administrator Panel – Manage student operations and college resources</p>
 
@@ -209,68 +219,77 @@
   </div>
    <a href="index.html"><button>← Back to Home</button></a>
   </div>
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; <a href="©2025 LINK Training College. All rights reserved">©2025 LINK Training College. All rights reserved.</a></p>
-   
-    <p>Email: <a href="mailto:link@lifewaymi.org">Email: link@lifewaymi.org</a></p>
-    <p>Phone: <a href="tel:+254706124127">Phone: +254 706124127</a></p>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
   </footer>
 
-  <!-- Login Logic -->
+  <!-- LOGIN LOGIC -->
   <script>
-  const studentUsers = { 
+    const studentUsers = {
 "LINK/DND/050/24":	"42811291",
-"LINK/CCDEV/063/25":	"38632277",
+"LINK/CCDEV/063/25": "38632277",
 "LINK/DCH/057/25":	"42414586",
 "LINK/DCH/049/24":	"221703061",
 "LINK/CCH/063/25":	"415736856",
 "LINK/DCH/058/25":	"270625930",
-"LINK/CCDEV/062/25":	"23399350",
-"LINK/DCDEV/059/25":	"41132144",
+"LINK/CCDEV/062/25": "23399350",
+"LINK/DCDEV/059/25": "41132144",
 "LINK/CND/051/24":	"0719266393",
-"LINK/DND/061/25":	"548093262" 
-};
+"LINK/DND/061/25":	"548093262"     };
 
-  const adminUsers = {
-    "admin": "link1",
+    const staffUsers = {
+    "registrar": "link1",
     "a&s": "link2",
     "teaching": "link3",
     "discipline": "link4",
-    "distance": "link5",
-    "media": "link6"
-  };
+    "distance": "link5",    };
 
-  // ✅ ADD THIS FUNCTION:
-  function showLogin(role) {
-    document.getElementById("role-select").style.display = "none";
-    if (role === "student") {
-      document.getElementById("student-login").style.display = "block";
-    } else if (role === "admin") {
-      document.getElementById("admin-login").style.display = "block";
-    }
-  }
+    const adminUsers = {
+      "admin": "super2025",
+    };
 
-  function validateStudent() {
-    const reg = document.getElementById("regno").value.trim();
-    const pass = document.getElementById("student-password").value.trim();
-    if (studentUsers[reg] === pass) {
-      document.getElementById("student-login").style.display = "none";
-      document.getElementById("student-portal").style.display = "block";
-    } else {
-      document.getElementById("student-error-msg").textContent = "Invalid student credentials.";
+    function showLogin(role) {
+      document.getElementById("role-select").style.display = "none";
+      document.getElementById("student-login").style.display = role === "student" ? "block" : "none";
+      document.getElementById("admin-login").style.display = role === "admin" ? "block" : "none";
+      document.getElementById("staff-login").style.display = role === "staff" ? "block" : "none";
     }
-  }
 
-  function validateAdmin() {
-    const user = document.getElementById("admin-user").value.trim();
-    const pass = document.getElementById("admin-pass").value.trim();
-    if (adminUsers[user] === pass) {
-      document.getElementById("admin-login").style.display = "none";
-      document.getElementById("admin-portal").style.display = "block";
-    } else {
-      document.getElementById("admin-error-msg").textContent = "Incorrect admin username or password.";
+    function validateStudent() {
+      const reg = document.getElementById("regno").value.trim();
+      const pass = document.getElementById("student-password").value.trim();
+      if (studentUsers[reg] === pass) {
+        document.getElementById("student-login").style.display = "none";
+        document.getElementById("student-portal").style.display = "block";
+      } else {
+        document.getElementById("student-error-msg").textContent = "Invalid student credentials.";
+      }
     }
-  }
-</script>
+
+    function validateStaff() {
+      const user = document.getElementById("staff-user").value.trim();
+      const pass = document.getElementById("staff-pass").value.trim();
+      if (staffUsers[user] === pass) {
+        document.getElementById("staff-login").style.display = "none";
+        document.getElementById("staff-portal").style.display = "block";
+      } else {
+        document.getElementById("staff-error-msg").textContent = "Invalid staff credentials.";
+      }
+    }
+
+    function validateAdmin() {
+      const user = document.getElementById("admin-user").value.trim();
+      const pass = document.getElementById("admin-pass").value.trim();
+      if (adminUsers[user] === pass) {
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("admin-portal").style.display = "block";
+      } else {
+        document.getElementById("admin-error-msg").textContent = "Incorrect admin credentials.";
+      }
+    }
+  </script>
 </body>
 </html>
