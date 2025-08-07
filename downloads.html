@@ -23,6 +23,7 @@
       margin: 40px auto 10px;
       font-size: 20px;
     }
+
     h3 {
       color: blue;
       border-bottom: 2px solid maroon;
@@ -30,6 +31,18 @@
       margin: 40px auto 10px;
       font-size: 18px;
     }
+
+    input[type="text"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      width: 80%;
+      max-width: 600px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
     ul {
       list-style: none;
       padding: 0;
@@ -84,7 +97,6 @@
 </head>
 <body>
 
-  <!-- Optional navbar (if needed) -->
   <div id="navbar-placeholder"></div>
   <script>
     fetch("navbar.html")
@@ -96,63 +108,65 @@
 
   <h1>📥 Student Downloads</h1>
 
+  <input type="text" id="searchInput" placeholder="Search downloads...">
+
   <h2>Course Notes</h2>
-  
+
   <h3>Community Health</h3>
-  <ul>
+  <ul class="download-list">
     <li><a href="Community-Based Health Care.pdf" target="_blank">Community-Based Health Care</a></li> 
     <li><a href="Gender Disability & Vulnerable Groups.pdf" target="_blank">Gender Disability & Vulnerable Groups</a></li>
   </ul>
 
-  <h3>Community Development &Social Work</h3>
-  <ul>
+  <h3>Community Development & Social Work</h3>
+  <ul class="download-list">
     <li><a href="Social Research Works.pdf" target="_blank">Social Research Works</a></li>
     <li><a href="Foundations Of Accounting.pdf" target="_blank">Foundations Of Accounting</a></li>
   </ul>
-  
+
   <h3>Nutrition & Dietetics</h3>
-    <ul> 
-      <li><a href="Applied Biological Science.pdf" target="_blank">Applied Biological Science</a></li>
-      <li><a href="Foundations Of Accounting.pdf" target="_blank">Foundations Of Accounting</a></li>
-    </ul>
-  
+  <ul class="download-list">
+    <li><a href="Applied Biological Science.pdf" target="_blank">Applied Biological Science</a></li>
+    <li><a href="Foundations Of Accounting.pdf" target="_blank">Foundations Of Accounting</a></li>
+  </ul>
+
   <h2>Forms & Resources</h2>
-  <ul>
+  <ul class="download-list">
     <li><a href="2025 Fee Structure.pdf" target="_blank">2025 Fees Structure</a></li>
     <li><a href="Application Form.pdf" target="_blank">APPLICATION FORM</a></li>
     <li><a href="Student Handbook.pdf" target="_blank">Student Handbook</a></li>
-    <li><a href="Student Deferment Form.pdf" target=_blank">Student Deferment Form</a></li>
-    <li><a href="SPECIAL EXAM REQUEST FORM.pdf" target=_blank">SPECIAL EXAM REQUEST FORM</a></li>
+    <li><a href="Student Deferment Form.pdf" target="_blank">Student Deferment Form</a></li>
+    <li><a href="SPECIAL EXAM REQUEST FORM.pdf" target="_blank">SPECIAL EXAM REQUEST FORM</a></li>
   </ul>
 
   <h2>Past Papers</h2>
-  <ul>
+  <ul class="download-list">
     <li><a href="KNEC_SW_Level6_2023.pdf" target="_blank">📄 Social Work Level 6 – 2023</a></li>
     <li><a href="CHA_Paper2022.pdf" target="_blank">📄 Community Health Assistant – 2022</a></li>
   </ul>
 
-  <h2>Continous Assessment Tests</h2>
-  
-  <h3>Community health</h3>
-   <ul>
+  <h2>Continuous Assessment Tests</h2>
+
+  <h3>Community Health</h3>
+  <ul class="download-list">
     <li><a href="Monitoring and Evaluation of Community Health Programs CAT.docx" target="_blank">Monitoring and Evaluation of Community Health Programs CAT</a></li>
     <li><a href="Gender CAT.docx" target="_blank">Gender CAT</a></li>
-    <li><a href="community-Based Health Care CAT.docx" target="_blank">community-Based Health Care CAT</a></li>
+    <li><a href="community-Based Health Care CAT.docx" target="_blank">Community-Based Health Care CAT</a></li>
   </ul>
-  
+
   <h3>Community Development</h3>
-    <ul>
-    <li><a href="RESOURCE MANAGEMENT CAT.docx" target="_blank">RESOURCE MANAGEMENT CAT</a></li>
-    <li><a href="SOCIAL RESEARCH WORKS cat.docx" target="_blank">SOCIAL RESEARCH WORKS cat</a></li>
+  <ul class="download-list">
+    <li><a href="RESOURCE MANAGEMENT CAT.docx" target="_blank">Resource Management CAT</a></li>
+    <li><a href="SOCIAL RESEARCH WORKS cat.docx" target="_blank">Social Research Works CAT</a></li>
     <li><a href="CAT 2 Resource Management.docx" target="_blank">CAT 2 Resource Management</a></li>
-    <li><a href="FOUNDATIONS OF ACCOUNTING CAT.docx" target="_blank">FOUNDATIONS OF ACCOUNTING CAT</a></li>
+    <li><a href="FOUNDATIONS OF ACCOUNTING CAT.docx" target="_blank">Foundations Of Accounting CAT</a></li>
   </ul>
-  
+
   <h3>Nutrition & Dietetics</h3>
-  <ul>
-      <li><a href="APPLIED BIOLOGICAL SCIENCE cat.docx" target="_blank">APPLIED BIOLOGICAL SCIENCE cat</a></li>
+  <ul class="download-list">
+    <li><a href="APPLIED BIOLOGICAL SCIENCE cat.docx" target="_blank">Applied Biological Science CAT</a></li>
   </ul>
-  
+
   <a href="portal.html" class="back-link">← Back to Student Portal</a>
 
   <footer>
@@ -160,6 +174,22 @@
     <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
     <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
   </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+      const filter = searchInput.value.toLowerCase();
+      const lists = document.querySelectorAll(".download-list");
+
+      lists.forEach(list => {
+        const items = list.querySelectorAll("li");
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          item.style.display = text.includes(filter) ? "" : "none";
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
