@@ -121,6 +121,29 @@
       });
     }
   </script>
+  </script>
+
+  <!-- Admin Upload Section -->
+  <div id="admin-upload">
+    <h2>📤 Upload New File (Admin Only)</h2>
+    <form id="uploadForm" enctype="multipart/form-data" method="POST" action="https://formspree.io/f/xkgbzdzp">
+      <label for="title">File Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter file title..." required />
+
+      <label for="file">Select PDF File</label>
+      <input type="file" id="file" name="file" accept="application/pdf" required />
+
+      <button type="submit">Upload File</button>
+    </form>
+  </div>
+
+  <script>
+    // Simulate admin check (this can later come from your portal login)
+    const isAdmin = true; // change to false to hide
+    if (isAdmin) {
+      document.getElementById("admin-upload").style.display = "block";
+    }
+  </script>
 
   <h2>Course Notes</h2>
 
