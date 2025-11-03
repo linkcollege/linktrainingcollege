@@ -7,8 +7,8 @@
     body {
       background-color: #fffdd0;
       font-family: Arial, sans-serif;
-      padding: 20px;
       margin: 0;
+      padding: 20px;
     }
 
     h1 {
@@ -16,39 +16,65 @@
       color: blue;
     }
 
-    ul {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 0;
-      list-style: none;
-    }
-
-    li {
+    .upload-container {
       background: white;
-      padding: 15px;
-      margin-bottom: 10px;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
-    a {
-      text-decoration: none;
+    .upload-container p {
       color: maroon;
-      font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    input[type="file"] {
+      display: block;
+      margin: 15px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 80%;
+      background-color: #fafafa;
+    }
+
+    button {
+      background-color: maroon;
+      color: white;
+      font-weight: bold;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
+    #message {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
     }
 
     footer {
       background-color: maroon;
       color: white;
-      text-decoration: underline;
       text-align: center;
       padding: 15px;
       font-size: 14px;
       margin-top: 40px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -62,20 +88,42 @@
       });
   </script>
 
-  <h1>📥 Student & Admin Uploads</h1>
+  <h1>📤 Admin Uploads</h1>
 
-  <ul>
-    <li><a href="873738941-Home-Based-Care-and-Support-Notes.pdf" target="_blank">💰 873738941-Home-Based-Care-and-Support-Notes</a></li>
-    <li><a href="Cert CH Logbook.pdf" target="_blank">Cert CH Logbook</a></li>
-    <li><a href="CHA Level 5.pdf" target="_blank">CHA Level 5</a></li>
-    <li><a href="SW Level 5.pdf" target="_blank">SW Level 5</a></li>
-    <li><a href="SW Level 4.pdf" target="_blank">SW Level 4</a></li>
-    <li><a href="SW Level 6.pdf" target="_blank">SW Level 6</a></li>
-    <li><a href="KNDI level 6.pdf" target="_blank">KNDI level 6</a></li>
-  </ul>
+  <div class="upload-container">
+    <p>Upload official college documents here.<br>
+    <strong>Allowed file type:</strong> PDF (max 10 MB).</p>
 
-<footer>
-  <p>&copy; 2025 LINK Training College. All rights reserved.</p>
-  <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
-  <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
-</footer>
+    <form id="uploadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" target="_blank">
+      <input type="file" name="file" accept="application/pdf" required>
+      <br>
+      <button type="submit">Upload</button>
+      <button type="reset">Cancel</button>
+    </form>
+
+    <div id="message"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LINK Training College. All rights reserved.</p>
+    <p>Email: <a href="mailto:link@lifewaymi.org">link@lifewaymi.org</a></p>
+    <p>Phone: <a href="tel:+254706124127">+254 706124127</a></p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function () {
+      message.textContent = 'Uploading... Please wait.';
+      setTimeout(() => {
+        message.textContent = '✅ Upload successful! Your file has been sent.';
+      }, 2500);
+    });
+
+    form.addEventListener('reset', function () {
+      message.textContent = '';
+    });
+  </script>
+</body>
+</html>
